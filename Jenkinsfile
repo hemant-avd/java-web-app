@@ -7,7 +7,7 @@ pipeline{
     stages{
         stage("Checkout Code"){
             steps{
-                git branch: 'main', url: 'https://github.com/padmanava9490/java-web-app.git'
+                git branch: 'master', url: 'https://github.com/hemant-avd/java-web-app.git'
             }
         }
         stage("Build Code"){
@@ -17,7 +17,7 @@ pipeline{
         }
         stage("Deployment"){
             steps{
-                deploy adapters: [tomcat9(url: 'http://54.221.63.54:8080/', credentialsId:'TomcatCred')] , war:'target/*.war'
+                deploy adapters: [tomcat9(url: 'http://54.242.147.159:8080/', credentialsId:'tomee')] , war:'target/*.war'
             }
         }
     }
